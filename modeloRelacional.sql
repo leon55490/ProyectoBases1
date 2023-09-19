@@ -246,9 +246,11 @@ CREATE TABLE MultimediaGrupo (
 CREATE TABLE MensajeGrupo (
     mensajeGrupoId INT PRIMARY KEY,
     grupoId INT,
+    mascotaId INT,
     contenido TEXT,
     fechaEnvio DATE,
-    FOREIGN KEY (grupoId) REFERENCES Grupo(grupoId)
+    FOREIGN KEY (grupoId) REFERENCES Grupo(grupoId),
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId)
 );
 
 CREATE TABLE AsistenciaEvento (
