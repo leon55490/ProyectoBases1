@@ -187,3 +187,84 @@ CREATE TABLE PublicacionPagina (
     fechaPublicacion DATE,
     FOREIGN KEY (paginaId) REFERENCES Pagina(paginaId)
 );
+
+CREATE TABLE MensajePagina (
+    mensajePaginaId INT PRIMARY KEY,
+    paginaId INT,
+    contenido TEXT,
+    fechaEnvio DATE,
+    FOREIGN KEY (paginaId) REFERENCES Pagina(paginaId)
+);
+
+CREATE TABLE MensajeMascota (
+    mensajeMascotaId INT PRIMARY KEY,
+    remitenteId INT,
+    receptorId INT,
+    contenido TEXT,
+    fechaEnvio DATE,
+    FOREIGN KEY (remitenteId) REFERENCES Mascota(mascotaId),
+    FOREIGN KEY (receptorId) REFERENCES Mascota(mascotaId)
+);
+
+CREATE TABLE MultimediaPagina (
+    multimediaPaginaId INT PRIMARY KEY,
+    publicacionPaginaId INT,
+    url VARCHAR(255), -- Puedes modificar esto para almacenar la URL de la multimedia
+    FOREIGN KEY (publicacionPaginaId) REFERENCES PublicacionPagina(publicacionPaginaId)
+);
+
+CREATE TABLE InteresPorMascota (
+    interesPorMascotaId INT PRIMARY KEY,
+    mascotaId INT,
+    interesId INT,
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId),
+    FOREIGN KEY (interesId) REFERENCES Interes(interesId)
+);
+
+CREATE TABLE MultimediaMascota (
+    multimediaMascotaId INT PRIMARY KEY,
+    publicacionMascotaId INT,
+    url VARCHAR(255), -- Puedes modificar esto para almacenar la URL de la multimedia
+    FOREIGN KEY (publicacionMascotaId) REFERENCES PublicacionMascota(publicacionMascotaId)
+);
+
+CREATE TABLE PublicacionGrupo (
+    publicacionGrupoId INT PRIMARY KEY,
+    grupoId INT,
+    contenido TEXT,
+    fechaPublicacion DATE,
+    FOREIGN KEY (grupoId) REFERENCES Grupo(grupoId)
+);
+
+CREATE TABLE MultimediaGrupo (
+    multimediaGrupoId INT PRIMARY KEY,
+    publicacionGrupoId INT,
+    url VARCHAR(255), -- Puedes modificar esto para almacenar la URL de la multimedia
+    FOREIGN KEY (publicacionGrupoId) REFERENCES PublicacionGrupo(publicacionGrupoId)
+);
+
+CREATE TABLE MensajeGrupo (
+    mensajeGrupoId INT PRIMARY KEY,
+    grupoId INT,
+    contenido TEXT,
+    fechaEnvio DATE,
+    FOREIGN KEY (grupoId) REFERENCES Grupo(grupoId)
+);
+
+CREATE TABLE AsistenciaEvento (
+    mascotaId INT,
+    eventoId INT,
+    PRIMARY KEY (mascotaId, eventoId),
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId),
+    FOREIGN KEY (eventoId) REFERENCES Evento(eventoId)
+);
+
+CREATE TABLE DenunciaEvento (
+    denunciaEventoId INT PRIMARY KEY,
+    eventoId INT,
+    mascotaId INT,
+    motivo TEXT,
+    fechaDenuncia DATE,
+    FOREIGN KEY (eventoId) REFERENCES Evento(eventoId),
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId)
+);
