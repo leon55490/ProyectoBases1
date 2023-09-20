@@ -18,7 +18,8 @@ CREATE TABLE Mascota (
 
 -- Crear tabla Privacidad (usuario)
 CREATE TABLE Privacidad (
-    usuarioId INT PRIMARY KEY,
+    privacidadId INT PRIMARY KEY,
+    usuarioId INT,
     configuracionPrivacidad VARCHAR(255),
     FOREIGN KEY (usuarioId) REFERENCES Usuario(usuarioId)
 );
