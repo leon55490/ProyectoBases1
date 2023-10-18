@@ -78,6 +78,55 @@ CREATE TABLE Mensaje (
     FOREIGN KEY (receptorId) REFERENCES Mascota(mascotaId)
 );
 
+-- Crear tabla Tienda
+CREATE TABLE Tienda (
+    tiendaId INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    propietarioId INT,
+    FOREIGN KEY (propietarioId) REFERENCES Usuario(usuarioId)
+);
+
+-- Crear tabla Producto
+CREATE TABLE Producto (
+    productoId INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    especieAnimal VARCHAR(50),
+    precio DECIMAL(10, 2),
+    tiendaId INT,
+    FOREIGN KEY (tiendaId) REFERENCES Tienda(tiendaId)
+);
+
+-- Crear tabla VentaProducto
+CREATE TABLE VentaProducto (
+    ventaProductoId INT PRIMARY KEY,
+    productoId INT,
+    cantidad INT,
+    fechaVenta DATE,
+    FOREIGN KEY (productoId) REFERENCES Producto(productoId)
+);
+
+-- Crear tabla ReaccionMascotaProducto
+CREATE TABLE ReaccionMascotaProducto (
+    reaccionMascotaProductoId INT PRIMARY KEY,
+    mascotaId INT,
+    productoId INT,
+    tipoReaccion VARCHAR(50),
+    fechaReaccion DATE,
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId),
+    FOREIGN KEY (productoId) REFERENCES Producto(productoId)
+);
+
+
+-- Crear tabla Publicidad
+CREATE TABLE Publicidad (
+    publicidadId INT PRIMARY KEY,
+    interesId INT,
+    contenido TEXT,
+    fechaInicio DATE,
+    fechaFin DATE,
+    FOREIGN KEY (interesId) REFERENCES Interes(interesId)
+);
+
 
 -- Crear tabla PublicacionMascota
 CREATE TABLE PublicacionMascota (
