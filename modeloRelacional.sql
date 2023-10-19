@@ -320,3 +320,24 @@ CREATE TABLE DenunciaEvento (
     FOREIGN KEY (eventoId) REFERENCES Evento(eventoId),
     FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId)
 );
+
+CREATE TABLE CompraProducto (
+    compraId INT PRIMARY KEY,
+    mascotaId INT,
+    productoId INT,
+    cantidad INT,
+    precioTotal DECIMAL(10, 2),
+    fechaCompra DATE,
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId),
+    FOREIGN KEY (productoId) REFERENCES Producto(productoId)
+);
+
+CREATE TABLE ReaccionProducto (
+    reaccionId INT PRIMARY KEY,
+    mascotaId INT,
+    productoId INT,
+    tipoReaccion VARCHAR(50),
+    fechaReaccion DATE,
+    FOREIGN KEY (mascotaId) REFERENCES Mascota(mascotaId),
+    FOREIGN KEY (productoId) REFERENCES Producto(productoId)
+);
