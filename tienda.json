@@ -1,0 +1,15 @@
+[
+	{
+		"_id": "tiendaId",
+		"nombre": "NombreTienda",
+		"usuarioId": "usuarioId",
+		"Productos": [
+			{
+				"_id": "productoId",
+				"nombre": "NombreProducto",
+				"especieAnimal": "EspecieAnimal",
+				"precio": 19.99
+			}
+		]
+	}
+]

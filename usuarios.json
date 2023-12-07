@@ -1,0 +1,69 @@
+[
+	{
+		"_id": "usuarioId",
+		"nombre": "NombreUsuario",
+		"correo": "correo@ejemplo.com",
+		"fechaRegistro": "2023-01-01",
+		"Privacidad": {
+			"configuracionPrivacidad": "ConfiguraciónPrivacidadUsuario"
+		},
+		"Mascotas": [
+			{
+				"_id": "mascotaId",
+				"nombre": "NombreMascota",
+				"especie": "EspecieMascota",
+				"edad": 5,
+				"usuarioId": "usuarioId",
+				"Intereses": [
+					{
+						"interesId": "interesId",
+						"interes": "InteresMascota",
+						"vigencia": "2024-01-01"
+					}
+				],
+				"Amigos": ["mascotaId2", "mascotaId3"],
+				"Seguidores": ["mascotaId4", "mascotaId5"],
+				"Eventos": [
+					{
+						"_id": "eventoId",
+						"nombre": "NombreEvento",
+						"fecha_inicio": "2023-01-01",
+						"fecha_fin": "2023-01-02"
+					}
+				],
+				"Publicaciones": [
+					{
+						"_id": "publicacionId",
+						"contenido": "ContenidoPublicacion",
+						"fechaPublicacion": "2023-01-01"
+					}
+				],
+				"Ventas": [
+					{
+						"fechaVenta": "2023-01-02",
+						"productos": [
+							{
+								"productoId": "productoId1",
+								"cantidad": 2
+							}
+						]
+					}
+				]
+			}
+		],
+		"Paginas": [
+			{
+				"_id": "paginaId",
+				"nombre": "NombrePagina",
+				"creadorId": "usuarioId",
+				"Publicaciones": [
+					{
+						"_id": "publicacionPaginaId",
+						"contenido": "Contenido de la publicación",
+						"fechaPublicacion": "2023-01-01"
+					}
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,15 @@
+[
+	{
+		"_id": "grupoId",
+		"nombre": "NombreGrupo",
+		"creadorId": "mascotaId",
+		"Miembros": ["mascotaId1", "mascotaId2"],
+		"Publicaciones": [
+			{
+				"_id": "publicacionGrupoId",
+				"contenido": "ContenidoPublicacion",
+				"fechaPublicacion": "2023-01-01"
+			}
+		]
+	}
+]
